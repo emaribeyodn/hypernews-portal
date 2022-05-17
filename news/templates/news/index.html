@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News Home</title>
+</head>
+<body>
+    <h2>Hyper news</h2>
+    <p>
+    <form action="/news/" method="GET">
+        <input type="text" name="q">
+        <button type="submit">Search</button>
+    </form>
+    </p>
+    {% for key, value in news.items %}
+        <h4>{{ key }}</h4>
+        <ul>
+            {% for details in value %}
+                <li><a href="/news/{{ details.link }}/">{{ details.title }}</a></li>
+            {% endfor %}
+        </ul>
+    {% endfor %}
+</body>
+<a href="/news/create/">Create</a>
+</html>
